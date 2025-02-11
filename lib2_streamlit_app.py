@@ -8,10 +8,10 @@ import plotly.graph_objs as go
 st.set_page_config(layout="wide")
 
 @st.cache_data
-def load_excel_sheet():
+def load_data():
     return pd.read_excel(io='lib2_data.xlsx', engine='openpyxl')
 
-df = load_excel_sheet()
+df = load_data()
 
 @st.cache_data
 def pivot():
