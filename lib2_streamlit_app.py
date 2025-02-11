@@ -9,13 +9,13 @@ st.set_page_config(layout="wide")
 
 @st.cache_data
 def load_data():
-    return pd.read_excel(io='lib2_data.xlsx', engine='openpyxl')
+    return pd.read_csv('lib2_data.csv')
 
 df = load_data()
 
 @st.cache_data
 def pivot():
-    return df.pivot_table(values='res act', index = 'pool_id_2', columns= 'pool_id_1', sort=False)
+    return df.pivot_table(values='res act', index = 'poolid_2', columns= 'poolid_1', sort=False)
 
 data = pivot()
 
@@ -24,7 +24,7 @@ cmap = px.colors.sequential.PuRd_r
 im = px.imshow(data, zmin=60, zmax = 100, color_continuous_scale= cmap)
 im.update_traces(hovertemplate = 'None', hoverinfo='skip')
 
-scat = im.add_trace(go.Scatter(mode ='markers', x = df['pool_id_1'], y = df['pool_id_2'], marker=dict(opacity=0)))
+scat = im.add_trace(go.Scatter(mode ='markers', x = df['poolid_1'], y = df['poolid_2'], marker=dict(opacity=0)))
 
 im.update_layout(height = 700)
 
@@ -42,11 +42,11 @@ if len(selected_points) != 0:
     # st.write(selected_points)
     x1 = selected_points[0]['x']
     y1 = selected_points[0]['y']
-    hoversrc = df[(df['pool_id_1'] == x1) & (df['pool_id_2'] == y1)]
+    hoversrc = df[(df['poolid_1'] == x1) & (df['poolid_2'] == y1)]
     if len(hoversrc) != 0:  
         with col2:
             st.header('Raw Data')
-            st.write(hoversrc[['pool_id_1', 'pool_id_2', 'assayplate_well', 'time0', 'time1', 'time2', 'time3', 'time4', 'time5', 'time6', 'slopes', 'rvalue', 'res act']].set_index(['pool_id_1', 'pool_id_2']))
+            st.write(hoversrc[['poolid_1', 'poolid_2', 'assayplate_well', 'time0', 'time1', 'time2', 'time3', 'time4', 'time5', 'time6', 'slopes', 'rvalue', 'res act']].set_index(['poolid_1', 'poolid_2']))
         with col2:
             st.header('Monomers')
             col3, space3, col4, space4, col5, space5, col6 = st.columns((1,0.4,1,0.4,1,0.4,1)) 
