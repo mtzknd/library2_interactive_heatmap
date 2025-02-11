@@ -52,18 +52,18 @@ if len(selected_points) != 0:
             col3, space3, col4, space4, col5, space5, col6 = st.columns((1,0.4,1,0.4,1,0.4,1)) 
         with col3:    
             for i in range(1,4):
-                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.jpg',
+                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.png',
                 caption=hoversrc['pep%s' % str(i)].values[0])
         with col4:
             for i in range(4,7):
-                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.jpg', 
+                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.png', 
                          caption=hoversrc['pep%s' % str(i)].values[0])
         with col5:
             for i in range(7,10):
-                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.jpg', 
+                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.png', 
                          caption=hoversrc['pep%s' % str(i)].values[0])
         with col6:
             for i in range(10,13):
-                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.jpg', 
+                st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.png', 
                          caption=hoversrc['pep%s' % str(i)].values[0])
 
