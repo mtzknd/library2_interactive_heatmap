@@ -37,6 +37,10 @@ with col1:
     event = st.plotly_chart(im, on_select="rerun", use_container_width = True)
     selected_points = event.selection.points
     # st.write(selected_points)
+    with col2:
+        st.header('Instructions')
+        st.write('Navigate and zoom heatmap using panel in the top right corner of the heatmap')
+        st.write('Click on square in heatmap for monomer structures and raw data')
 
 if len(selected_points) != 0:
     # st.write(selected_points)
@@ -44,12 +48,10 @@ if len(selected_points) != 0:
     y1 = selected_points[0]['y']
     hoversrc = df[(df['poolid_1'] == x1) & (df['poolid_2'] == y1)]
     if len(hoversrc) != 0:  
-        with col2:
-            st.header('Raw Data')
-            st.write(hoversrc[['poolid_1', 'poolid_2', 'assayplate_well', 'time0', 'time1', 'time2', 'time3', 'time4', 'time5', 'time6', 'slopes', 'rvalue', 'res act']].set_index(['poolid_1', 'poolid_2']))
+
         with col2:
             st.header('Monomers')
-            col3, space3, col4, space4, col5, space5, col6 = st.columns((1,0.4,1,0.4,1,0.4,1)) 
+            col3, space3, col4, space4, col5, space5, col6 = st.columns((1,0.5,1,0.5,1,0.5,1)) 
         with col3:    
             for i in range(1,4):
                 st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.png',
@@ -66,4 +68,9 @@ if len(selected_points) != 0:
             for i in range(10,13):
                 st.image("./mols/" + str(hoversrc['pep%s' % str(i)].values[0]) + '.png', 
                          caption=hoversrc['pep%s' % str(i)].values[0])
+
+        with col2:
+            st.header('Raw Data')
+            st.write(hoversrc[['poolid_1', 'poolid_2', 'assayplate_well', 'time0', 'time1', 'time2', 'time3', 'time4', 'time5', 'time6', 'slopes', 'rvalue', 'res act']].set_index(['poolid_1', 'poolid_2']))
+
 
