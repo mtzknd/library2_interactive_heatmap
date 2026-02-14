@@ -26,7 +26,7 @@ im.update_traces(hovertemplate = 'None', hoverinfo='skip')
 
 scat = im.add_trace(go.Scatter(mode ='markers', x = df['pool x'], y = df['pool y'], marker=dict(opacity=0)))
 
-im.update_layout(height = 700)
+im.update_layout(height = 500)
 
 
 
