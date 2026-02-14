@@ -34,7 +34,7 @@ pip install -r requirements.txt
 ```
 6.	Run the program which opens a browser window with the interactive heatmap.
 ```
-streamlit run lib1_streamlit_app.py
+streamlit run lib2_streamlit_app.py
 ```
 
 Installing and compiling on a standard computer should take less than 30 minutes.
