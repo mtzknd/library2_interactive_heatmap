@@ -45,11 +45,11 @@ Installing and compiling on a standard computer should take less than 30 minutes
 
 ![lib2output](/demo/lib2output.png)
 
-### Output when square in heatmap is clicked
+### Zoom using magnifying glass tool
 
 ![lib2zoom](/demo/lib2zoom.png)
 
-### Output when other triangle is selected from dropdown menu
+### Output when square in heatmap is clicked
 
 ![lib2clicked](/demo/lib2clicked.png)
 
